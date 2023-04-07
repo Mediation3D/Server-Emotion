@@ -55,7 +55,7 @@ def pre_process_landmark(landmark_list):
 
 def logging_csv(number, landmark_list):
     if 0 <= number <= 5:
-        csv_path = 'model/keypoint_classifier/keypoint.csv'
+        csv_path = 'libs/emotion_recognition/keypoint_classifier/keypoint.csv'
         with open(csv_path, 'a', newline="") as f:
             writer = csv.writer(f)
             writer.writerow([number, *landmark_list])
