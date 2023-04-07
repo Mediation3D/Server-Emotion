@@ -1,0 +1,1 @@
+from libs.emotion_recognition.keypoint_classifier.keypoint_classifier import KeyPointClassifier

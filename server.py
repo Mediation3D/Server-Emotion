@@ -4,7 +4,7 @@ import cv2
 import itertools
 import mediapipe as mp
 
-from model import KeyPointClassifier
+from libs.emotion_recognition import KeyPointClassifier
 from websockets.server import serve
 
 

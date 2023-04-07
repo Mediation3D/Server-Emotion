@@ -1,50 +1,42 @@
-# Facial Emotion Recognition (Server)
-Clone of [this github repo](https://github.com/REWTAO/Facial-emotion-recognition-using-mediapipe)
+# Facial Emotion Recognition (Websocket Server)
 
-## Reference from Kazuhito Takahashi(https://twitter.com/KzhtTkhs)
-- [MediaPipe](https://mediapipe.dev/)
-- [Kazuhito00/mediapipe-python-sample](https://github.com/Kazuhito00/mediapipe-python-sample)
-- [Kazuhito00/hand-gesture-recognition-using-mediapipe](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe)
+![](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)
 
-## facial emotion recognition using mediapipe
+## facial emotion recognition as websockets server
 - Estimate face mesh using MediaPipe(Python version).This is a sample program that recognizes facial emotion with a simple multilayer perceptron using the detected key points that returned from mediapipe.Although this model is 97% accurate, there is no generalization due to too little training data.
 - the project is implement from https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe to use in facial emotion recognition
-- the keypoint.csv is empty because this file is too large to upload so if you want to training model please find new dataset or record data by yourself
-
-This repository contains the following contents.
-- Sample program
-- Facial emotion recognition model(TFLite)
-- Script for collect data from images dataset and camera 
 
 ## Requirements
-- mediapipe 0.8.9
-- OpenCV 4.5.4 or Later
-- Tensorflow 2.7.0 or Later
-- scikit-learn 1.0.1 or Later (Only if you want to display the confusion matrix) 
-- matplotlib 3.5.0 or Later (Only if you want to display the confusion matrix)
+- mediapipe 0.8.9 : `pip install mediapipe`
+- OpenCV 4.5.4 or Later : `pip install opencv-python`
+- Tensorflow 2.7.0 or Later : `pip install tensorflow`
+- Websockets : `pip install websockets`
 
-### main.py
-This is a sample program for inference.it will use keypoint_classifier.tflite as model to predict your emotion.
+## Usage
+1. Clone the project
+2. Install requirements
+3. Start server `python server.py`
 
-### training.ipynb
-This is a model training script for facial emotion recognition.
-
-### model/keypoint_classifier
-This directory stores files related to facial emotion recognition.
-The following files are stored.
-* Training data(keypoint.csv)
-* Trained model(keypoint_classifier.tflite)
-* Label data(keypoint_classifier_label.csv)
-* Inference module(keypoint_classifier.py)
-
+## Archives Script from ([Kazuhito00/hand-gesture-recognition-using-mediapipe](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe))
 ### Collect_from_image.py
 This script will collect the keypoints from image dataset(.jpg). you can change your dataset directory to collect data.It will use your folder name to label.
 
 ### Collect_from_webcam.py
 This script will collect the keypoints from your camera. press 'k' to enter the mode to save key points that show 'Record keypoints mode' then press '0-9' as label. the key points will be added to "model/keypoint_classifier/keypoint.csv". 
 
-## Author
-Rattasart Sakunrat
+### main.py
+This is a sample program for inference.it will use keypoint_classifier.tflite as model to predict your emotion.
 
-## License 
-hand-gesture-recognition-using-mediapipe is under [Apache v2 license](LICENSE).
+### libs/emotion_recognition/training.ipynb
+This is a model training script for facial emotion recognition.
+
+## Credits
+
+- **Kazuhito Takahashi**
+  - Twitter : [高橋 かずひと@闇のパワポLT職人 (@KzhtTkhs)](https://twitter.com/KzhtTkhs)
+  - Github : [Kazuhito00](https://github.com/Kazuhito00)
+  - Project : [Kazuhito00/hand-gesture-recognition-using-mediapipe](https://github.com/Kazuhito00/hand-gesture-recognition-using-mediapipe)
+
+- **Rattasart Sakunrat**
+  - Github : [REWTAO](https://github.com/REWTAO)
+  - Project : [REWTAO/Facial-emotion-recognition-using-mediapipe](https://github.com/REWTAO/Facial-emotion-recognition-using-mediapipe)

@@ -5,7 +5,7 @@ import itertools
 import cv2 as cv
 import numpy as np
 import mediapipe as mp
-from model import KeyPointClassifier
+from libs.emotion_recognition import KeyPointClassifier
 
 
 def calc_landmark_list(image, landmarks):
@@ -109,8 +109,8 @@ keypoint_classifier = KeyPointClassifier()
 
 
 # Read labels
-with open('model/keypoint_classifier/keypoint_classifier_label.csv',
-            encoding='utf-8-sig') as f:
+with open('libs/emotion_recognition/keypoint_classifier/keypoint_classifier_label.csv',
+          encoding='utf-8-sig') as f:
     keypoint_classifier_labels = csv.reader(f)
     keypoint_classifier_labels = [
         row[0] for row in keypoint_classifier_labels
