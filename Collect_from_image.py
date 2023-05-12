@@ -59,8 +59,6 @@ def logging_csv(number, landmark_list):
         with open(csv_path, 'a', newline="") as f:
             writer = csv.writer(f)
             writer.writerow([number, *landmark_list])
-    return
-
 
 root = "Your dataset dir"
 IMAGE_FILES = []
@@ -76,7 +74,8 @@ face_mesh = mp_face_mesh.FaceMesh(
         max_num_faces=1,
         refine_landmarks=True,
         min_detection_confidence=0.7,
-        static_image_mode=True) 
+        static_image_mode=True
+    )
 
 
 for idx, file in enumerate(IMAGE_FILES):

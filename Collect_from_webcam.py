@@ -53,20 +53,14 @@ def pre_process_landmark(landmark_list):
         return n / max_value
 
     temp_landmark_list = list(map(normalize_, temp_landmark_list))
-
     return temp_landmark_list
 
-
 def logging_csv(number, mode, landmark_list):
-    if mode == 0:
-        pass
     if mode == 1 and (0 <= number <= 9):
         csv_path = 'libs/emotion_recognition/keypoint_classifier/keypoint.csv'
         with open(csv_path, 'a', newline="") as f:
             writer = csv.writer(f)
             writer.writerow([number, *landmark_list])
-    return
-
 
 cap_device = 0
 cap_width = 1920
@@ -84,7 +78,7 @@ face_mesh = mp_face_mesh.FaceMesh(
         max_num_faces=1,
         refine_landmarks=True,
         min_detection_confidence=0.7,
-        min_tracking_confidence=0.5) 
+        min_tracking_confidence=0.5)
 
 mode = 0
 
@@ -96,14 +90,14 @@ while True:
         break
     number, mode = select_mode(key, mode)
 
-    # Camera capture 
+    # Camera capture
     ret, image = cap.read()
     if not ret:
         break
     image = cv.flip(image, 1)  # Mirror display
     debug_image = copy.deepcopy(image)
 
-    # Detection implementation 
+    # Detection implementation
     image = cv.cvtColor(image, cv.COLOR_BGR2RGB)
 
     image.flags.writeable = False
@@ -126,6 +120,7 @@ while True:
         cv.putText(debug_image, "MODE:" + 'Record keypoints mode', (10, 90),
                 cv.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1,
                 cv.LINE_AA)
+
     cv.imshow('Facial Emotion Recognition', debug_image)
 
 cap.release()

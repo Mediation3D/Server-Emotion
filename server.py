@@ -91,11 +91,7 @@ async def echo(websocket):
             with open('image.png', 'wb') as f:
                 f.write(message)
             img = cv2.imread('image.png')
-            # cv2.imshow('image', img)
-            # cv2.waitKey(0)
-            # cv2.destroyAllWindows()
             expression = get_expression(img)
-            # print(expression)
             result = '{"event": "@ExpressionResult", "result": "' + expression + '"}'
             await websocket.send(result)
         else:

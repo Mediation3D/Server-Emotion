@@ -37,4 +37,3 @@ class KeyPointClassifier(object):
             return result_index
         else:
             return self.last_index
-    

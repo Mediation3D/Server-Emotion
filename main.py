@@ -7,21 +7,17 @@ import numpy as np
 import mediapipe as mp
 from libs.emotion_recognition import KeyPointClassifier
 
-
 def calc_landmark_list(image, landmarks):
     image_width, image_height = image.shape[1], image.shape[0]
-
     landmark_point = []
 
     # Keypoint
     for _, landmark in enumerate(landmarks.landmark):
         landmark_x = min(int(landmark.x * image_width), image_width - 1)
         landmark_y = min(int(landmark.y * image_height), image_height - 1)
-
         landmark_point.append([landmark_x, landmark_y])
 
     return landmark_point
-
 
 def pre_process_landmark(landmark_list):
     temp_landmark_list = copy.deepcopy(landmark_list)
@@ -103,7 +99,8 @@ face_mesh = mp_face_mesh.FaceMesh(
         max_num_faces=1,
         refine_landmarks=True,
         min_detection_confidence=0.5,
-        min_tracking_confidence=0.5) 
+        min_tracking_confidence=0.5
+    )
 
 keypoint_classifier = KeyPointClassifier()
 
